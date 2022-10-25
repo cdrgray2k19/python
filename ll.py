@@ -119,7 +119,7 @@ def partition(head, value) -> Node:
 
 
 
-def sum(first, second) -> Node:
+def sumReversed(first, second) -> Node:
     '''returns the sum of the two reversed linkedlists passed as if they were passed as integers, returns the sum as a reversed linkedlist'''
     node1 = first.head
     node2 = second.head
@@ -151,20 +151,27 @@ def sum(first, second) -> Node:
     return res
         
 
+def sumForward(first, second):
+    pass
+
 
 l1 = linkedList()
 l2 = linkedList()
 
 l1.insert_at_end(9)
-l1.insert_at_end(9)
-l1.insert_at_end(9)
+l1.insert_at_end(7)
+l1.insert_at_end(8)
 
 l2.insert_at_end(9)
-l2.insert_at_end(9)
-l2.insert_at_end(9)
+l2.insert_at_end(6)
+l2.insert_at_end(5)
 
-h = sum(l1, l2)
-print(h)
+sum = sumReversed(l1, l2)
+print(sum)
+
+sum = sumForward(l1, l2)
+print(sum)
+
 """l.insert_at_start(1)
 l.insert_at_start(2)
 l.insert_at_start(3)
