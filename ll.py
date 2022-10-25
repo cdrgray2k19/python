@@ -1,3 +1,6 @@
+from os import link
+
+
 class Node:
     def __init__(self, data) -> None:
         self.data = data
@@ -11,6 +14,14 @@ class linkedList:
         temp = self.head
         self.head = Node(value)
         self.head.next = temp
+    def insert_at_end(self, value) -> None:
+        if not self.head:
+            self.head = Node(value)
+            return
+        current = self.head
+        while current.next:
+            current = current.next
+        current.next = Node(value)
 
     def __str__(self) -> None:
         current = self.head
@@ -71,32 +82,7 @@ class linkedList:
             current = current.next
         return True
 
-l = linkedList()
-"""l.insert_at_start(1)
-l.insert_at_start(2)
-l.insert_at_start(3)
-l.insert_at_start(5)
-l.insert_at_start(8)
-l.insert_at_start(13)
-l.insert_at_start(21)
-l.insert_at_start(34)
-print(l)
-l.reverse()
-print(l)
-print(l.fib())"""
-l.insert_at_start(3)
-l.insert_at_start(5)
-l.insert_at_start(8)
-l.insert_at_start(5)
-l.insert_at_start(10)
-l.insert_at_start(2)
-l.insert_at_start(1)
-l.reverse()
-print(l)
-
-
-
-def partition(head, value):
+def partition(head, value) -> Node:
     '''partitions the list around a value, splitting list into left side and right side, left side contains nodes with data smaller than specified value, right side contains all other nodes'''
     firstLeft = None
     lastLeft = None
@@ -131,5 +117,75 @@ def partition(head, value):
 
     return firstRight
 
-l.head = partition(l.head, 5)
+
+
+def sum(first, second) -> Node:
+    '''returns the sum of the two reversed linkedlists passed as if they were passed as integers, returns the sum as a reversed linkedlist'''
+    node1 = first.head
+    node2 = second.head
+
+    carry = 0
+    res = linkedList()
+    current = None
+    while node1 or node2:
+        num = carry
+        carry = 0
+        if node1:
+            num += node1.data
+            node1 = node1.next
+        if node2:
+            num += node2.data
+            node2 = node2.next
+        if num >= 10:
+            carry = 1
+            num -= 10
+        if not current:
+            current = Node(num)
+            res.head = current
+        else:
+            current.next = Node(num)
+            current = current.next
+    
+    if carry != 0:
+        current.next = Node(carry)
+    return res
+        
+
+
+l1 = linkedList()
+l2 = linkedList()
+
+l1.insert_at_end(9)
+l1.insert_at_end(9)
+l1.insert_at_end(9)
+
+l2.insert_at_end(9)
+l2.insert_at_end(9)
+l2.insert_at_end(9)
+
+h = sum(l1, l2)
+print(h)
+"""l.insert_at_start(1)
+l.insert_at_start(2)
+l.insert_at_start(3)
+l.insert_at_start(5)
+l.insert_at_start(8)
+l.insert_at_start(13)
+l.insert_at_start(21)
+l.insert_at_start(34)
 print(l)
+l.reverse()
+print(l)
+print(l.fib())"""
+"""l.insert_at_start(3)
+l.insert_at_start(5)
+l.insert_at_start(8)
+l.insert_at_start(5)
+l.insert_at_start(10)
+l.insert_at_start(2)
+l.insert_at_start(1)
+l.reverse()
+print(l)
+
+l.head = partition(l.head, 5)
+print(l)"""
