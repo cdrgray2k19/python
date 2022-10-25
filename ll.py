@@ -72,7 +72,7 @@ class linkedList:
         return True
 
 l = linkedList()
-l.insert_at_start(1)
+"""l.insert_at_start(1)
 l.insert_at_start(2)
 l.insert_at_start(3)
 l.insert_at_start(5)
@@ -83,4 +83,53 @@ l.insert_at_start(34)
 print(l)
 l.reverse()
 print(l)
-print(l.fib())
+print(l.fib())"""
+l.insert_at_start(3)
+l.insert_at_start(5)
+l.insert_at_start(8)
+l.insert_at_start(5)
+l.insert_at_start(10)
+l.insert_at_start(2)
+l.insert_at_start(1)
+l.reverse()
+print(l)
+
+
+
+def partition(head, value):
+    '''partitions the list around a value, splitting list into left side and right side, left side contains nodes with data smaller than specified value, right side contains all other nodes'''
+    firstLeft = None
+    lastLeft = None
+    firstRight = None
+    lastRight = None
+
+    current = head
+
+    while current != None:
+        if current.data < value:
+            if not firstLeft:
+                firstLeft = current
+            else:
+                lastLeft.next = current
+            lastLeft = current
+        else:
+            if not firstRight:
+                firstRight = current
+
+            else:
+                lastRight.next = current
+
+            lastRight = current
+
+        current = current.next
+
+    if lastRight:
+        lastRight.next = None
+    if firstLeft:
+        lastLeft.next = firstRight
+        return firstLeft
+
+    return firstRight
+
+l.head = partition(l.head, 5)
+print(l)
