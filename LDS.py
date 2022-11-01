@@ -54,15 +54,15 @@ def plot(collumn, placesMap, data, ignoredVal, length, increment):
         yearInd += 1
 
 
-    plt.suptitle(f"{data[0][placesMap[index][1]].split(',')[collumn]} VS days after 01/05")
+    plt.suptitle(f"{data[0][placesMap[0][1]].split(',')[collumn]} VS days after 01/05")
     plt.show()
     return "shown"
 
-params = [0, 1, 5, 2, 4, 0, 6, 5 ,1 ,1000, 10, 100, 0, 100, 0]
+increments = [0, 2, 5, 2, 4, 0, 6, 5 ,1 ,1000, 10, 100, 0, 100, 0]
 
 while True:
     inp = input("enter number 1 to 14 inclusive to view collumn, if END entered, program will halt")
     if inp == "END":
         break
     inp = int(inp)
-    plot(inp, placesMap, data, ignoredVal, length, params[inp])
+    plot(inp, placesMap, data, ignoredVal, length, increments[inp])
