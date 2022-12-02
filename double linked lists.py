@@ -27,6 +27,15 @@ class linkedlist:
 
         itr.next = Node(data, itr, None)
 
+    def remove(self, node):
+        if node == self.head:
+            node.next = self.head
+            self.head.prev = None
+        else:
+            node.prev.next = node.next
+            if node.next != None:
+                node.next.prev = node.prev
+        return node
 
     def print_forward(self):
         if self.head is None:

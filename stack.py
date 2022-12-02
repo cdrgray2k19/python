@@ -31,13 +31,3 @@ class Stack:
     def isEmpty(self):
         return not self.top
 
-
-test = Stack()
-test.push(5)
-test.push(4)
-print(test.peek().data)
-print(test.pop().data)
-print(test.peek().data)
-print(test.isEmpty())
-print(test.pop().data)
-print(test.isEmpty())

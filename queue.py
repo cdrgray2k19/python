@@ -32,16 +32,3 @@ class Queue:
 
     def isEmpty(self):
         return not self.first
-
-test = Queue()
-test.add(1)
-test.add(2)
-test.add(3)
-test.add(4)
-print(test.remove().data)
-print(test.remove().data)
-print(test.peek().data)
-print(test.remove().data)
-print(test.isEmpty())
-print(test.remove().data)
-print(test.isEmpty())
