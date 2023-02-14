@@ -65,24 +65,35 @@ running = True
 point = [[0], [0]]
 rotateLeft = [[0,-1], [1,0]]
 
-
+tIndex = 0
+color = (0,255,0)
 points = []
 screen.fill((255, 255, 255))
-while len(points) < 1000000:
+while len(points) < 10000000:
     rotatedPoint = matMult(rotateLeft, point)
-    points.append(rotatedPoint)
+    points.append([rotatedPoint, color])
     num = randint(0, 100)
-    tIndex = 0
-    if num <= 86:
+    if num <= 1:
+        tIndex = 0
+        color = (0,255,0)
+    elif num <= 86:
         tIndex = 1
+        color = (255,255,0)
     elif num <= 93:
         tIndex = 2
+        color = (255,0,0)
     else:
         tIndex = 3
+        color = (0,0,255)
 
 
     point = transform(tIndex, point)
-for p in points:
+for p, c in points:
+    """if c == (0,255,0):
+        print("rare point")
+        size = 10
+    else:
+        size = 1"""
     pg.draw.circle(screen, (0,255,0), vec(p[0][0]*80+WIDTH/1.5, p[1][0]*80/(HEIGHT/WIDTH)+HEIGHT/2), 1)
 pg.display.update()
 
