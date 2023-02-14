@@ -89,11 +89,10 @@ while len(points) < 10000000:
 
     point = transform(tIndex, point)
 for p, c in points:
-    """if c == (0,255,0):
-        print("rare point")
+    if c == (255,0,0):
         size = 10
     else:
-        size = 1"""
+        size = 1
     pg.draw.circle(screen, (0,255,0), vec(p[0][0]*80+WIDTH/1.5, p[1][0]*80/(HEIGHT/WIDTH)+HEIGHT/2), 1)
 pg.display.update()
 
