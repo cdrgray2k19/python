@@ -93,7 +93,7 @@ for p, c in points:
         size = 10
     else:
         size = 1
-    pg.draw.circle(screen, (0,255,0), vec(p[0][0]*80+WIDTH/1.5, p[1][0]*80/(HEIGHT/WIDTH)+HEIGHT/2), 1)
+    pg.draw.circle(screen, c, vec(p[0][0]*80+WIDTH/1.5, p[1][0]*80/(HEIGHT/WIDTH)+HEIGHT/2), 1)
 pg.display.update()
 
 while running:

@@ -1,4 +1,5 @@
-"""primes = [1] * 10000001
+"""
+primes = [1] * 10000001
 primes[0] = 0
 primes[1] = 0
 primeFile = open("primeNums.txt", "w")
@@ -7,8 +8,8 @@ for n in range(2, len(primes)):
         continue
     primeFile.write(str(n) + "\n")
     for i in range(n*2, len(primes), n):
-        primes[i] = 0"""
-
+        primes[i] = 0
+"""
 import pygame as pg
 import sys
 from random import randint
